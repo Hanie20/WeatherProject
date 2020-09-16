@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Source+Serif+Pro:ital,wght@1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4063c54aa6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <form id="form">
+              <input
+                type="text"
+                placeholder="Enter a city "
+                class="city"
+                id="text-input"
+              />
+              <input type="submit" value="Search" class="submitButton" />
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="current"
+                class="current"
+              >
+                Current
+              </button>
+            </form>
+          </div>
+          <h1 id="heading"></h1>
+          <h2 id="data">Tuesday 7:00 pm</h2>
+          <h3></h3>
+          <div class="degree">
+            <i class="fas fa-cloud-moon"> </i>
+            <span class="temp" id="degree"> 17</span>
+            <span class="unit" id="unity">
+              <a href="#" id="celsius"> °C </a> |
+              <a href="#" id="farenheit">°F</a>
+            </span>
+          </div>
+          <br />
+          <ul>
+            <li>Humidity: <span id="humidity"></span> %</li>
+            <li>Wind: <span id="wind"></span> km/h</li>
+          </ul>
+          <br />
+          <div class="row">
+            <div class="col">
+              Wed
+              <div class="row">
+                <div class="col">
+                  <small> 23°C</small>
+                  <div class="row">
+                    <div class="col">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              Thu
+              <div class="row">
+                <div class="col">
+                  <small> 19°C </small>
+                  <div class="row">
+                    <div class="col">
+                      <i class="fas fa-cloud-moon"> </i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              Fri
+              <div class="row">
+                <div class="col">
+                  <small> 10°C</small>
+                  <div class="row">
+                    <div class="col">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              Sat
+              <div class="row">
+                <div class="col">
+                  <small> 23°C</small>
+
+                  <div class="row">
+                    <div class="col">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              Sun
+              <div class="row">
+                <div class="col">
+                  <small> 16°C</small>
+                  <div class="row">
+                    <div class="col">
+                      <i class="fas fa-cloud-sun-rain"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
