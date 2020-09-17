@@ -1,9 +1,11 @@
-function formattedDate() {
-  let hours = currentDate.getHours();
+function formattedDate(timestamp) {
+  // Calculate the date
+  let date = new Date(timestamp);
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = currentDate.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -16,7 +18,8 @@ function formattedDate() {
     "Friday",
     "Saturday",
   ];
-  let day = days[currentDate.getDay()];
+  let day = days[date.getDay()];
+
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -44,7 +47,10 @@ function showTemperature(response) {
   document.querySelector("#heading").innerHTML = response.data.name;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("h3").innerHTML = response.data.weather[0].main;
+  document.querySelector("h3").innerHTML = response.data.weather[0].description;
+  document.querySelector("#data").innerHTML = formattedDate(
+    response.data.dt * 1000
+  );
 }
 function cityName(city) {
   let units = "metric";
@@ -81,9 +87,9 @@ function showPosition(position) {
 function showLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
+/*
 let currentDate = new Date();
-document.querySelector("#data").innerHTML = formattedDate(currentDate);
+document.querySelector("#data").innerHTML = formattedDate(currentDate); */
 
 document.querySelector("#form").addEventListener("submit", searchForm);
 
