@@ -32,16 +32,25 @@ function searchForm(event) {
 
 function convertToFarenheit(event) {
   event.preventDefault();
-  document.querySelector("#degree").innerHTML = 62;
+  // remove the class of active
+  celciusLink.classList.remove("active");
+  //add the class of  active;
+  farenheitLink.classList.add("active");
+  let temperature = document.querySelector("#degree");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(farenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  document.querySelector("#degree").innerHTML = 17;
+  celciusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let temperature = document.querySelector("#degree");
+  temperature.innerHTML = celciusTemperature;
 }
 
 function showTemperature(response) {
-  console.log(response.data);
+  celciusTemperature = Math.round(response.data.main.temp);
   document.querySelector("#degree").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -67,6 +76,7 @@ function cityName(city) {
   let apiUrl = `${headUrl}${city}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 }
+
 function findCity() {
   let city = document.querySelector("#text-input").value;
   cityName(city);
@@ -96,13 +106,14 @@ function showLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+let celciusTemperature = null;
 document.querySelector("#form").addEventListener("submit", searchForm);
 
-document
-  .querySelector("#farenheit")
-  .addEventListener("click", convertToFarenheit);
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", convertToFarenheit);
 
-document.querySelector("#celsius").addEventListener("click", convertToCelsius);
+let celciusLink = document.querySelector("#celsius");
+celciusLink.addEventListener("click", convertToCelsius);
 
 document.querySelector("#current").addEventListener("click", showLocation);
 
