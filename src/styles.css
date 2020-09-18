@@ -47,18 +47,24 @@ li {
   opacity: 0.8;
   margin-left: -10px;
 }
-.degree .iconImg {
+.degree .iconImg,
+.iconImages {
   max-width: 80px;
   margin: 0px;
   margin-top: -20px;
   padding: 0%;
 }
-.row {
-  text-align: center;
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
-  opacity: 0.9;
+.iconImages {
+  margin-left: -20px;
+  margin-bottom: -15px;
 }
+
+.forecast-temperature {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.8;
+}
+
 .form-group .city,
 .btn-primary {
   font-family: "Playfair Display", serif;
@@ -92,18 +98,6 @@ li {
   background: #318fb5;
 }
 
-.fa-sun {
-  color: #fbd46d;
-  font-size: 40px;
-}
-.fa-cloud-moon {
-  font-size: 40px;
-  color: #f4f4f4;
-}
-.fa-cloud-sun-rain {
-  font-size: 40px;
-  color: #f4f4f4;
-}
 .unit {
   position: relative;
   top: -20px;
