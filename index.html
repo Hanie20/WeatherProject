@@ -42,7 +42,12 @@
                 class="city"
                 id="text-input"
               />
-              <input type="submit" value="Search" class="submitButton" />
+              <input
+                type="submit"
+                value="Search"
+                class="submitButton"
+                autocomplete="off"
+              />
               <button
                 type="button"
                 class="btn btn-primary"
@@ -57,8 +62,11 @@
           <h2>Last updated: <span id="data"></span></h2>
           <h3></h3>
           <div class="degree">
-            <i class="fas fa-cloud-moon"> </i>
-            <span class="temp" id="degree"> 17</span>
+            <img src="" alt="" id="icon" class="iconImg" /><span
+              class="temp"
+              id="degree"
+              >17</span
+            >
             <span class="unit" id="unity">
               <a href="#" id="celsius"> °C </a> |
               <a href="#" id="farenheit">°F</a>
@@ -140,12 +148,12 @@
           </div>
         </div>
       </div>
-      <div class="projectLink">
+      <small class="projectLink">
         <a href="https://github.com/Hanie20/WeatherProject">
           Open-source code</a
         >
         by Johanie Damas
-      </div>
+      </small>
     </div>
 
     <script src="src/index.js"></script>

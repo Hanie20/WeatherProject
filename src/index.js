@@ -41,6 +41,7 @@ function convertToCelsius(event) {
 }
 
 function showTemperature(response) {
+  console.log(response.data);
   document.querySelector("#degree").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -51,7 +52,14 @@ function showTemperature(response) {
   document.querySelector("#data").innerHTML = formattedDate(
     response.data.dt * 1000
   );
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
 function cityName(city) {
   let units = "metric";
   let apiKey = `63319272f90841d507345d8c9d4e1232`;
@@ -87,9 +95,6 @@ function showPosition(position) {
 function showLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-/*
-let currentDate = new Date();
-document.querySelector("#data").innerHTML = formattedDate(currentDate); */
 
 document.querySelector("#form").addEventListener("submit", searchForm);
 
@@ -103,4 +108,4 @@ document.querySelector("#current").addEventListener("click", showLocation);
 
 document.querySelector("#form").addEventListener("submit", findCity);
 
-cityName("New York");
+cityName("Paris");

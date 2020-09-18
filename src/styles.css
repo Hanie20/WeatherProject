@@ -45,10 +45,13 @@ li {
 .temp {
   font-size: 45px;
   opacity: 0.8;
+  margin-left: -10px;
 }
-.degree .fa-cloud-moon {
-  font-size: 50px;
-  color: #f4f4f4;
+.degree .iconImg {
+  max-width: 80px;
+  margin: 0px;
+  margin-top: -20px;
+  padding: 0%;
 }
 .row {
   text-align: center;
