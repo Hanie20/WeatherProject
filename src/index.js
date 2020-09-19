@@ -76,7 +76,8 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-
+  console.log(response.data.list[0].main.temp_max);
+  console.log(response.data.list[0].main.temp_min);
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `  
@@ -114,16 +115,6 @@ function findCity() {
   cityName(city);
 }
 
-function showWheather(response) {
-  document.querySelector("#degree").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#heading").innerHTML = response.data.name;
-  document.querySelector("#wind").innerHTML = response.data.wind.speed;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("h3").innerHTML = response.data.weather[0].main;
-}
-
 function showPosition(position) {
   let latitude = Math.round(position.coords.latitude);
   let longitude = Math.round(position.coords.longitude);
@@ -131,7 +122,10 @@ function showPosition(position) {
   let apiKey = `63319272f90841d507345d8c9d4e1232`;
   let headUrl = `https://api.openweathermap.org/data/2.5/weather?`;
   let apiUrl = `${headUrl}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showWheather);
+  axios.get(apiUrl).then(showTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function showLocation() {
