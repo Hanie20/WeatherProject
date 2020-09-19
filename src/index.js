@@ -151,4 +151,4 @@ document.querySelector("#current").addEventListener("click", showLocation);
 
 document.querySelector("#form").addEventListener("submit", findCity);
 
-cityName("Paris");
+cityName("Port Salut");
