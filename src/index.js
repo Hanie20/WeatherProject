@@ -56,9 +56,7 @@ function convertToCelsius(event) {
 
 function showTemperature(response) {
   celciusTemperature = Math.round(response.data.main.temp);
-  document.querySelector("#degree").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#degree").innerHTML = celciusTemperature;
   document.querySelector("#heading").innerHTML = response.data.name;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
